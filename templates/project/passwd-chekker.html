@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Password Checker | Projects{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-block">
+                    <h2>Password Checker</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p><img src="{{ url_for('static', filename='/images/passwdchk.png') }}"
+                                    class="img-responsive" alt=""></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p>Pwned Passwords are hundreds of millions of real world passwords previously exposed in
+                                data breaches. This exposure makes them unsuitable for ongoing use as they're at much
+                                greater risk of being used to take over other accounts. They're searchable online below
+                                as well as being downloadable for use in other online systems. <a
+                                    href="https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2#cloudflareprivacyandkanonymity"
+                                    class="light">Read more about how HIBP
+                                    protects the privacy of searched passwords.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block">
+                    <h2>Check out here !!!</h2>
+                    {% if re %}
+                    <div class="alert alert-{{ status }}" role="alert">{{ result }}</div>
+                    {% endif %}
+
+                    <form action="/projects/py/passwd-checker" method="POST" class="reveal-content">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="passwd" name="passwd" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class=" btn btn-primary">Check!</button>
+                        </div>
+                    </form>
+                </div>
+{% endblock %}

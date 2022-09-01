@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Hacker News | Projects{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-block">
+                    <h2>About me</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p><img src="{{ url_for('static', filename='/images/hackernews.png') }}"
+                                    class="img-responsive" alt=""></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p>Pwned Passwords are hundreds of millions of real world passwords previously exposed in
+                                data breaches. This exposure makes them unsuitable for ongoing use as they're at much
+                                greater risk of being used to take over other accounts. They're searchable online below
+                                as well as being downloadable for use in other online systems. <a
+                                    href="https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2#cloudflareprivacyandkanonymity"
+                                    class="light">Read more about how HIBP
+                                    protects the privacy of searched passwords.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block">
+                    <div class="template-example">
+                        <h2 class="template-title-example">{{ today }}</h2>
+
+                        <table class="table table-bordered">
+                            <thead style="color:#ec2894">
+                                    <tr>
+                                        <th>S No.</th>
+                                        <td>News</td>
+                                        <td>Voting</td>
+                                    
+                                </th>
+                            </thead>
+
+                            <tbody style="color:#f5329d">
+                                {% for ind, title in titles %}
+                                <tr>
+                                    <th>{{ ind + 1 }}</th>
+                                    <td><a href="{{ links[ind] }}" target="_blank" rel="noopener noreferrer">{{ title
+                                            }}</a></td>
+                                    <td>{{ votes[ind] }}</td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
